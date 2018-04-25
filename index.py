@@ -9,8 +9,8 @@ string_to_use = "Fluffer puppers3!"
 string_size = len(string_to_use)
 string_size_bin = str(bin(string_size))
 converted_string = str(bin(string_size))
-#conv_string_tot = bin(string_to_use)
 
+#beginning of decode()
 right_most, bottom = img.size
 
 j = len(string_size_bin) - 1
@@ -21,10 +21,8 @@ for i in range ((right_most-1),(right_most-12),-1):
     text_length += str(pxl[i,(bottom-1)][0]%2)
     text_length += str(pxl[i,(bottom-1)][1]%2)
     text_length += str(pxl[i,(bottom-1)][2]%2)
-    #print(i,bottom-1,(pxl[i,(bottom-1)][0]%2),(pxl[i,(bottom-1)][1]%2),(pxl[i,(bottom-1)][2]%2))
-#print(text_length)
+    
 text_length_bin = ((int(text_length,base = 2)))/2
-#print(text_length_bin)
 text_len_utf = (text_length_bin)
 
 act_str = ""
@@ -61,8 +59,6 @@ for k in range (bot,-1,-1):
                         act_str += str((pxl[i,k][2])%2)
                         cnt+=1
 
-#print(text_len_utf, cnt, len(act_str), cnt/8)
-
 it = 0
 for l in range (0,(len(act_str))):
 
@@ -81,7 +77,7 @@ for l in range (0,(len(act_str))):
 
 
 print("The secret message is: ",full_txt)
-
+#end of decode()
 
 '''
 #print(string_size_bin[1])
