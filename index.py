@@ -1,21 +1,9 @@
 #!/usr/bin/Python3
 
-import binascii
 from PIL import Image
-def text_from_bits(bits, encoding='utf-8', errors='surrogatepass'):
-    n = int(bits, 2)
-    return int2bytes(n).decode(encoding, errors)
-
-def int2bytes(i):
-    hex_string = '%x' % i
-    n = len(hex_string)
-    return binascii.unhexlify(hex_string.zfill(n + (n & 1)))
 
 img = Image.open("testImage.png")
 pxl = img.load()
-
-beginning_of_text = 12 #This is set to 12 so that when right_most is taken to start entering text into image, it will start at the correct position.
-beginning_of_number = 11 # This will allow the number defining the length of the text to start at the right_most - 11th pixel
 
 string_to_use = "Fluffer puppers3!"
 string_size = len(string_to_use)
