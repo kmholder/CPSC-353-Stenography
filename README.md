@@ -1,5 +1,9 @@
 # CPSC-353-Stenography
 
+Project by: Keenan Holder kmholder@csu.fullerton.edu | kholder2014@gmail.com
+
+Project for: CSUF CPSC 353 Intro to Security | Reza Nikoopour
+
 This program can store and read text hidden in an image starting from the bottom right pixel.
 This is done by storing the length of the text in bits in the last eleven pixels
 and the text in the remaining pixels.
