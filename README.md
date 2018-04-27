@@ -6,4 +6,4 @@ and the text in the remaining pixels.
 The text will be written from the bottom right-most corner (starting with the 12th to last pixel) to the
 top left-most corner.
 
-As of April 25, 2018 10:27 am: the decode function works properly
+As of April 26, 2018 12:31 am: the encode and decode functions work properly
