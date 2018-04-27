@@ -6,8 +6,10 @@ import sys
 def encode(rImage):
     img = Image.open(rImage+".jpg")
     pxl = img.load()
+    txt_file = open("encoded_text.txt","r")
 
-    string_to_use = "security is fun"
+    string_to_use = txt_file.read()
+    #string_to_use = "security is fun"
     string_size = len(string_to_use)#This will be used to encode the text into the image.
 
     string_size_bin = str(bin((string_size*16)+1))

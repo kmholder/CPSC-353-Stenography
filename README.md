@@ -15,4 +15,4 @@ Running this program:
     4. To decode, run the following command:
         "python -c 'import index; index.decode("Mario_meme.png")'"
         
-As of April 27, 2018 2:14 am: the encode and decode functions work properly and can be called through the command line.
+As of April 27, 2018 2:36 am: the code can be read from the encoded_text.txt file and encoded
