@@ -160,6 +160,7 @@ def decode(rImage):
 
     text_length_bin = ((int(text_length,base = 2)))/2
     text_len_utf = (text_length_bin)
+    print "The secret string is",text_len_utf/8, "characters long."
 
     act_str  = "" #This is used for the string in bits.
     full_txt = "" #This is used for the text version of the string.
