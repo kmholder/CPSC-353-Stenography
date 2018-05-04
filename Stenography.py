@@ -1,23 +1,20 @@
-#!/usr/bin/Python3
-
 from PIL import Image
-import sys
 
 def encode(rImage):
+	#encode(rImage) preprocessing work
     img = Image.open(rImage+".jpg")
     pxl = img.load()
     txt_file = open("Stenography.py","r")
 
     string_to_use = txt_file.read()
-    #string_to_use = "security is fun"
     string_size = len(string_to_use)#This will be used to encode the text into the image.
 
-    string_size_bin = str(bin((string_size*16)+1))
+    string_size_bin = str(bin((string_size*16)+1)) #This will allow the encoded string size to match that of the length of the string in binary.
     conv_string_len = len(str(bin(string_size)))
     if string_size_bin.startswith("0b"):
-        string_size_bin = string_size_bin[2:]
+        string_size_bin = string_size_bin[2:] #This removes "0b" from the string.
     for i in range (conv_string_len,31):
-        string_size_bin = "0" + string_size_bin
+        string_size_bin = "0" + string_size_bin #This will prepend the string so that the correct lenght is inserted into the image.
     conv_string_len = len(string_size_bin)
 
     right_most, bottom = img.size
@@ -40,6 +37,7 @@ def encode(rImage):
         if ((pxl[i,(bottom-1)][2]%2) == 1):
             b -= 1
 
+		#This will set the bits that are being encoded.
         if j < conv_string_len:
             r += int(string_size_bin[j])
             j += 1
@@ -62,9 +60,9 @@ def encode(rImage):
             pxl[i,bottom-1] = (r,g,b)
 
 
-        #end encode text length
+    #end encode text length
 
-        #Begin code insertion
+    #Begin code insertion
     cnt = 0
     en_st =""
     for i in range (0,string_size):
@@ -163,11 +161,10 @@ def decode(rImage):
     text_length_bin = ((int(text_length,base = 2)))/2
     text_len_utf = (text_length_bin)
 
-    act_str = ""
-    full_txt= ""
-    letter = ""
-    act_txt = ""
-    act_let = ""
+    act_str  = "" #This is used for the string in bits.
+    full_txt = "" #This is used for the text version of the string.
+    letter   = "" #This is used to keep track of the letter in binary as it is being created by every 8 bits being read in.
+    act_let  = "" #This will hold the actual ascii letter to be added to full_txt.
 
     for i in range (right_most-12, -1, -1):
 
@@ -209,6 +206,7 @@ def decode(rImage):
             full_txt += act_let
             letter=""
             it = 0
-    #end of decode()
 
-    print("The secret message is: ",full_txt)
+    print ("The secret message is:") 
+    print (full_txt)
+	#end of decode()
