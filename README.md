@@ -1,6 +1,6 @@
 # CPSC-353-Stenography
-# Keenan Holder
-# CWID:891048423
+Keenan Holder
+CWID:891048423
 
 This program can store and read text hidden in an image starting from the bottom right pixel.
 This is done by storing the length of the text in bits in the last eleven pixels
